@@ -1,4 +1,3 @@
-const { expect } = require('@jest/globals');
 const { groupArrayElements } = require('./arrayUtilities')
 
 //This is the testing suite for the groupArrayElements function
@@ -10,7 +9,7 @@ describe('groupArrayElements', () => {
         const groupArrayElementsResult = groupArrayElements(givenArray, N)
 
         //Expect the let of the returned array is equal to N
-        expect(groupArrayElementsResult.length).toBe(3)
+        expect(groupArrayElementsResult.length).toBe(N)
     });
 
     it('should return an array with N sub arrays whose total length adds up to the length of the original array', () => {
