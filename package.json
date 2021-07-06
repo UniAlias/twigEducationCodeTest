@@ -1,0 +1,22 @@
+{
+  "name": "twigeducationcodetest",
+  "version": "1.0.0",
+  "description": "Code Test for Twig Education",
+  "main": "arrayUtilities.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UniAlias/twigEducationCodeTest.git"
+  },
+  "author": "Ryan McConnell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UniAlias/twigEducationCodeTest/issues"
+  },
+  "homepage": "https://github.com/UniAlias/twigEducationCodeTest#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
