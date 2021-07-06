@@ -1,5 +1,5 @@
 //The function groupArrayElements takes an array, and an integer N 
-//and splits the given array into N sub arrays as evenly as possible
+//and splits the contents of the given array into N sub arrays
 function groupArrayElements(arr, N) {
     const givenArray = arr
     let numberOfElementsPerGroup = Math.ceil((givenArray.length/N))
