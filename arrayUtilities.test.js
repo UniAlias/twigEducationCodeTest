@@ -25,7 +25,7 @@ describe('groupArrayElements', () => {
         groupArrayElementsResult.forEach(subArray => {
             internalArrayLengthTotal += subArray.length
         });
-        expect(internalArrayLengthTotal).toBe(givenArray.length)
+        expect(internalArrayLengthTotal).toBe(givenArray.length) //[ [1,2], [3,4], [5] ]
     });
 
 
@@ -88,11 +88,28 @@ describe('groupArrayElements', () => {
         expect(groupArrayElementsResult.length).toBe(N)
         
 
-        //Expects thatthe total length of all sub arrays equals the length of the given array
+        //Expects that the total length of all sub arrays equals the length of the given array
         let internalArrayLengthTotal = 0
         groupArrayElementsResult.forEach(subArray => {
             internalArrayLengthTotal += subArray.length
         })
         expect(internalArrayLengthTotal).toBe(givenArray.length)
-    })
+    });
+
+    it('should only contain number of empty arrays equal to difference between N and length of array when N > length of array', () => {
+        const givenArray = [1,2,3,4,5,6,7,8,9,10]
+        const N = 11
+
+        const groupArrayElementsResult = groupArrayElements(givenArray, N)
+
+        //Expect there to be only one empty array as length of array = 10 and N = 11
+        let numberOfEmptyArrays = 0
+        groupArrayElementsResult.map((subArray) => {
+            if (subArray.length == 0) {
+                numberOfEmptyArrays += 1
+            }
+        })
+        expect(numberOfEmptyArrays).toBe((N - (givenArray.length)))
+
+    });
 })

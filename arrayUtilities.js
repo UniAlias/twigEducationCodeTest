@@ -2,19 +2,23 @@
 //and splits the given array into N sub arrays as evenly as possible
 function groupArrayElements(arr, N) {
     const givenArray = arr
-    const numberOfElementsPerGroup = Math.ceil((givenArray.length/N))
+    let numberOfElementsPerGroup = Math.ceil((givenArray.length/N))
+
+    if ((givenArray.length % N !== 0) && (numberOfElementsPerGroup !== 1)) {
+        if (givenArray.length % numberOfElementsPerGroup == 0) {
+            numberOfElementsPerGroup -= 1
+        }
+    }
 
     let returnedArray = new Array(N).fill([])
 
-    for(var i = 0; i < returnedArray.length; i++) {
-        let intermediateArray = []
-        for(var j = 0; j < numberOfElementsPerGroup; j++) {
-            if (!( ((i*numberOfElementsPerGroup) + j) > (givenArray.length-1))) {
-                intermediateArray.push(givenArray[(i*numberOfElementsPerGroup) + j])
-            }  
+    returnedArray.map((_,i) => {
+        if (i !== (returnedArray.length-1)) {
+            returnedArray[i] = givenArray.slice(i*numberOfElementsPerGroup, (i+1)*numberOfElementsPerGroup)
+        } else {
+            returnedArray[i] = givenArray.slice(i*numberOfElementsPerGroup, givenArray.length)
         }
-        returnedArray[i] = [...intermediateArray]
-    }
+    })
 
     return returnedArray;
 }
